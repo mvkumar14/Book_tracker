@@ -1,0 +1,62 @@
+import PySimpleGUI as sg
+
+
+
+main_layout = [[sg.Button("Add a Book")],
+               [sg.Button("View Books")],
+               [sg.Exit()]]
+main_window = sg.Window('Main Window',main_layout)
+
+# not sure if I need these? < - they may be useful for tracking what is open and what isn't
+add_book_isactive = False
+view_books_isactive = False
+
+
+while True:
+    event,values = main_window.Read()
+    if event is None or event == "Exit":
+        break
+    elif event == 'Add a Book':
+        open_add_book_win()
+    elif event == "View Books":
+        open_view_book_win()
+
+
+
+# add_book_isactive = False
+# while True:
+#     event,values = main_window.Read()
+#     if event is None or event == "Exit":
+#         break
+#     elif event == 'Add a Book':
+#         add_book_isactive = True
+#         main_window.Hide()
+#         #You have to create the layout and window at this point for the
+#         #windows to be created properly.
+#         add_book_window = add_book_window()
+#         while True:
+#             ev2,val2 = add_book_window.Read()
+#             if ev2 is None or ev2 == "Exit":
+#                 add_book_window.Close()
+#                 add_book_isactive  = False
+#                 main_window.UnHide()
+#                 break
+
+
+
+
+
+#The values match the order in which they were entered:
+
+# 0 = title
+
+# 1 = # of pages
+
+# 2 = Due Date Month
+
+# 3 = Due date Day
+
+# 4 = Due date Year
+
+
+
